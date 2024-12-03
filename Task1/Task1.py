@@ -61,8 +61,6 @@ r=0
 cropImgCounter = 0
 image_path='images/bunny.jpeg'
 image=cv.imread(image_path)
-cv.namedWindow('Image')
-
 print("Click 'r' to draw a rectangle and 'c' to crop" )
 
 while True:
