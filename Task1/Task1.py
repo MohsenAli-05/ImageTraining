@@ -45,7 +45,7 @@ def crop_and_save(event, x, y, flags, param):
                 while True:
                     key = cv.waitKey(1) & 0xFF
                     if key == 13:  # press enter to save
-                        cv.imwrite(f"cropped_images/cropped-image-{cropImgCounter}.png", cropped_image)
+                        cv.imwrite(f"Task1/cropped_images/cropped-image-{cropImgCounter}.png", cropped_image)
                         print(f"Cropped image saved as 'cropped-image-{cropImgCounter}'.")
                         cv.destroyWindow("Cropped Image")
                         cropImgCounter +=1
