@@ -1,0 +1,33 @@
+Explanation of some functions:
+
+->self.FeedLabel.setPixmap(QPixmap.fromImage(original_qt_image).scaled(640, 480, Qt.KeepAspectRatio))
+
+1.QPixmap.fromImage(original_qt_image)
+QPixmap: This is a Qt class that provides an optimized image representation for displaying images in widgets like QLabel, QGraphicsView, etc.
+         QPixmap is often more efficient for rendering images than QImage in a GUI context because it is designed specifically for efficient rendering on the screen.
+
+fromImage(original_qt_image): This is a static method of the QPixmap class that creates a QPixmap object from a QImage object (in this case, original_qt_image).
+                              original_qt_image is assumed to be a QImage object (such as the one created with
+                              QImage(frame_rgb.data, frame_rgb.shape[1], frame_rgb.shape[0], QImage.Format_RGB888)).
+
+QPixmap.fromImage() takes the pixel data from the QImage and stores it in a format optimized for display on screen.
+
+2. .scaled(640, 480, Qt.KeepAspectRatio)
+.scaled(width, height, aspectRatioMode): This method scales the image to the specified width and height, but the scaling behavior is determined by the aspectRatioMode.
+
+Qt.KeepAspectRatio: This is an enumeration constant from the Qt module that tells Qt to maintain the image's original aspect ratio when scaling it.
+                    This means that the image will be resized such that it fits within the 640x480 box, but its width and height will be scaled proportionally,
+                    so the aspect ratio (the ratio of width to height) stays the same as the original image.
+If the original image has a different aspect ratio than 640x480, it will be resized to fit within the given width and height, but without distortion.
+If the width or height exceeds the given values (640 or 480), the other dimension will be adjusted accordingly to preserve the aspect ratio.
+
+Summary:
+QPixmap.fromImage(original_qt_image): Converts a QImage object (original_qt_image) into a QPixmap, which is better suited for efficient display in a GUI.
+.scaled(640, 480, Qt.KeepAspectRatio): Scales the image to fit within a 640x480 box, maintaining the original aspect ratio, so the image won't look stretched or squished.
+In practice, this code resizes the image while ensuring it maintains its natural proportions, making it suitable for display on a widget (such as a QLabel) with a specific size.
+
+--> QHBoxLayout: This is a layout manager that arranges widgets horizontally (left to right).
+It is a type of QLayout in Qt that automatically manages the positioning of its child widgets in a horizontal row.
+A layout in Qt is a way to manage the positions and sizes of widgets. Instead of manually setting positions
+(e.g., using setGeometry()), a layout ensures that widgets are properly aligned, resized, and spaced according to the layout's rules.
+QHBoxLayout will arrange the widgets you add to it horizontally, side by side.
